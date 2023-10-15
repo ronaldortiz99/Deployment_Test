@@ -60,3 +60,7 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6CA1D657AC2D4DBDA55DC67933E36D33 }}
           package: .
+      - name: 'Run Frontend'
+        run: |
+          npm run build
+          npm run dev
