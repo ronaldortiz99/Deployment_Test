@@ -24,8 +24,6 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm install -g webpack-dev-server
-          npm update
           npm run build --if-present
           npm run test --if-present
 
@@ -63,4 +61,6 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6CA1D657AC2D4DBDA55DC67933E36D33 }}
           package: .
       - name: 'Run Frontend'
-        run: npm run dev
+        run: |
+          npm run build
+          npm run dev
